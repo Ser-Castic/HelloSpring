@@ -21,4 +21,10 @@ public class HelloSpringController {
         model.addAttribute("name", session.getAttribute("userName"));
         return "home";
     }
+
+    @RequestMapping(path = "/login", method = RequestMethod.POST)
+    public String login(HttpSession session, String userName) {
+        session.setAttribute("userName", userName);
+        return "redirect:/";
+    }
 }
